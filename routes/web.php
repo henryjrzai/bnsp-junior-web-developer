@@ -1,18 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Middleware\EnsureUserIsLogin;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Authentication Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
 */
+Route::get('/', [AuthController::class, 'index'])->name('login')->middleware(EnsureUserIsLogin::class);
+Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 
-Route::get('/', function () {
-    return view('welcome');
+/*
+|--------------------------------------------------------------------------
+| Dashboard Routes
+|--------------------------------------------------------------------------
+*/
+Route::prefix('/admin')->middleware('auth','isAdmin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
