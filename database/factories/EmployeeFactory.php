@@ -22,6 +22,7 @@ class EmployeeFactory extends Factory
             'position' => fake()->randomElement(['Manager', 'Lead', 'Staff', 'Intern']),
             'phone' => fake()->phoneNumber(),
             'address' => fake()->address(),
+            'image' => 'henry-5661111.jpg',
         ];
     }
 }
