@@ -24,7 +24,7 @@ $(document).ready(function() {
             return `
               <a href="/admin/employee/${row.id}/show" class="btn btn-primary btn-sm text-white"><i class="fa-solid fa-circle-info"></i></a>
               <a id="update" href="/admin/employee/${row.id}/edit" class="btn btn-primary btn-sm text-white"><i class="fa-solid fa-pen-to-square"></i></a>
-              <button id="delete" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+              <button id="delete" data-id="${row.id}" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
             `;
         }
       }
@@ -46,3 +46,4 @@ $(document).ready(function() {
       }
   });
 });
+

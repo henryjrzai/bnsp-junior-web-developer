@@ -43,22 +43,25 @@
     </section>
     <section class="container">
         <h2>Data Pegawai</h2>
-        <a href="{{ route('admin-employee-create') }}" class="btn btn-primary text-white mb-4"><i class="fa-solid fa-address-book me-2"></i>Tambah Data Pegawai</a>
-        <table id="employee" class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Jabatan</th>
-                    <th>No Telp</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
+        <a href="{{ route('admin-employee-create') }}" class="btn btn-primary text-white mb-4"><i
+                class="fa-solid fa-address-book me-2"></i>Tambah Data Pegawai</a>
+        <div class="overflow-auto">
+            <table id="employee" class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Jabatan</th>
+                        <th>No Telp</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
     </section>
 @endsection
 

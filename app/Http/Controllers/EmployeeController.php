@@ -51,4 +51,42 @@ class EmployeeController extends Controller
         $employee = Employee::find($id);
         return view('admin.employee.show', compact('employee'));
     }
+
+    public function edit($id)
+    {
+        $employee = Employee::find($id);
+        return view('admin.employee.edit', compact('employee'));
+    }
+
+    public function update(Request $request) : RedirectResponse
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'position' => 'required',
+            'phone' => 'required|max:13',
+            'address' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg',
+        ]);
+
+        if(!$validated){
+            return redirect('/admin/employee/'.$request->id.'/edit')->with('error', 'Gagal mengubah karyawan');
+        } else {
+            $employee = Employee::find($request->id);
+            $employee->name = $request->name;
+            $employee->email = $request->email;
+            $employee->position = $request->position;
+            $employee->phone = $request->phone;
+            $employee->address = $request->address;
+
+            if($request->hasFile('image') && isset($request->image)){
+                $imageUrl =  time(). '-'. $request->name.'.'.$request->image->extension();
+                $request->image->move(public_path('assets/employee'), $imageUrl);
+                $employee->image = $imageUrl;
+            }
+
+            $employee->save();
+            return redirect('/admin');
+        }
+    }
 }
