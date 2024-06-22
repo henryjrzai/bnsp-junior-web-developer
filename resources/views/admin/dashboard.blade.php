@@ -67,4 +67,46 @@
 
 @push('script')
     <script src="{{ asset('assets\js\DashboardAdmin.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+        $('#employee').on('click', '#delete', function() {
+            var id = $(this).data('id');
+
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data yang dihapus tidak dapat dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: `admin/employee/${id}`,
+                        type: 'DELETE',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            _method: 'DELETE'
+                        },
+                        success: function(data) {
+                            $('#employee').DataTable().ajax.reload();
+                            Swal.fire({
+                                title: 'Berhasil!',
+                                text: data.success,
+                                icon: 'success',
+                            })
+                        },
+                        error: function(data) {
+                            Swal.fire({
+                                title: 'Gagal!',
+                                text: data.error,
+                                icon: 'error',
+                            })
+                        }
+                    });
+                }
+            })
+        });
+    </script>
 @endpush

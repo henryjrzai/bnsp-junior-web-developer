@@ -89,4 +89,15 @@ class EmployeeController extends Controller
             return redirect('/admin');
         }
     }
+
+    public function destroy($id)
+    {
+        $employee = Employee::find($id);
+        $employee->delete();
+        if($employee){
+            return response()->json(['success' => 'Karyawan berhasil dihapus']);
+        } else {
+            return response()->json(['error' => 'Gagal menghapus karyawan']);
+        }
+    }
 }
