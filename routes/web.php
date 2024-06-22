@@ -26,4 +26,5 @@ Route::prefix('/admin')->middleware('auth','isAdmin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin-dashboard');
     Route::get('/employee', [AdminController::class, 'getEmployee'])->name('admin-employee');
     Route::get('/employee/create', [EmployeeController::class, 'createEmployee'])->name('admin-employee-create');
+    Route::get('/employee/{id}/show', [EmployeeController::class, 'showEmployee'])->name('admin-employee-show');
 });
