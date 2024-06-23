@@ -9,30 +9,30 @@
 @section('content')
     <section class="container">
         <div class="row mt-4">
-            <h2 class="fw-bold">Hi, {{ auth()->user()->name }} </h2>
-            <h4>Selamat datang kembali</h4>
+            <h2 class="fw-bold slide-in-left">Hi, {{ auth()->user()->name }} </h2>
+            <h4 class="slide-in-left">Selamat datang kembali</h4>
         </div>
         <hr>
         <div class="row justify-content-around gap-1 mt-2 px-2">
-            <div class="card col-5 col-md-5 col-lg-2 bg-info" style="height: 100px">
+            <div class="card col-5 col-md-5 col-lg-2 bg-info swing-in-top-fwd " style="height: 100px">
                 <div class="card-body">
                     <h4 class="card-title text-white"><i class="fa-regular fa-circle-user me-2"></i>Manager</h4>
                     <p class="text-white" id="manager">10 Orang</p>
                 </div>
             </div>
-            <div class="card col-5 col-md-5 col-lg-2 bg-info" style="height: 100px">
+            <div class="card col-5 col-md-5 col-lg-2 bg-info swing-in-top-fwd " style="height: 100px">
                 <div class="card-body">
                     <h4 class="card-title text-white"><i class="fa-regular fa-circle-user me-2"></i>Lead</h4>
                     <p class="text-white" id="lead">10 Orang</p>
                 </div>
             </div>
-            <div class="card col-5 col-md-5 col-lg-2 bg-info" style="height: 100px">
+            <div class="card col-5 col-md-5 col-lg-2 bg-info swing-in-top-fwd " style="height: 100px">
                 <div class="card-body">
                     <h4 class="card-title text-white"><i class="fa-regular fa-circle-user me-2"></i>Staff</h4>
                     <p class="text-white" id="staff">10 Orang</p>
                 </div>
             </div>
-            <div class="card col-5 col-md-5 col-lg-2 bg-info" style="height: 100px">
+            <div class="card col-5 col-md-5 col-lg-2 bg-info swing-in-top-fwd " style="height: 100px">
                 <div class="card-body">
                     <h4 class="card-title text-white"><i class="fa-regular fa-circle-user me-2"></i>Intern</h4>
                     <p class="text-white" id="intern">10 Orang</p>

@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
 
+    {{-- Styles--}}
+    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
+
     {{-- JQuery --}}
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -18,7 +21,7 @@
     {{-- Vite --}}
     @vite(
 		[
-			'resources/css/app.css', 
+			'resources/css/app.css',
 			// 'resources/css/app.scss',
 			'resources/js/app.js'
 		]
