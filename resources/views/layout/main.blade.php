@@ -19,13 +19,14 @@
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
 
     {{-- Vite --}}
-    @vite(
-		[
-			'resources/css/app.css',
-			// 'resources/css/app.scss',
-			'resources/js/app.js'
-		]
-	)
+{{--    @vite(--}}
+{{--		[--}}
+{{--			'resources/css/app.css',--}}
+{{--			// 'resources/css/app.scss',--}}
+{{--			'resources/js/app.js'--}}
+{{--		]--}}
+{{--	)--}}
+    <link rel="stylesheet" href="{{ asset('build/assets/app-BfrIFsbk.css') }}">
 </head>
 
 <body>
@@ -33,6 +34,7 @@
     @yield('content')
     @yield('footer')
     <script src="https://kit.fontawesome.com/c3621d3bda.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('build/assets/app-D2ABGWzL.js') }}"></script>
     @stack('script')
 </body>
 
